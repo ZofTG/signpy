@@ -18,7 +18,7 @@ emit: decorator
 #! IMPORTS
 
 
-from typing import Any, Callable
+from typing import Any, Callable, Union
 
 
 #! EXPORTS
@@ -49,7 +49,7 @@ class Signal:
     _is_connected: bool
     _connected_fun: Callable
 
-    def __init__(self, fun: Callable | None = None):
+    def __init__(self, fun: Union[Callable, None] = None):
         self._is_connected = False
         if fun is None:
             self._connected_fun = self._unconnected
